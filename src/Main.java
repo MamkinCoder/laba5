@@ -1,8 +1,6 @@
-/**
- * Created by yaroslav on 23/04/2017.
- */
+
 public class Main {
-    public void Main(String args[]) {
+    public static void main(String args[]) {
 
     System.out.println("Hello World");
     }
