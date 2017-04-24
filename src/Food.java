@@ -6,6 +6,7 @@ public abstract class Food implements Nameable {
     private String name;
 
     String testing;
+    String onemoretest;
     
     Food(TASTE teaste, String name) {
         this.taste = teaste;
