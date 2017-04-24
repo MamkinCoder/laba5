@@ -1,21 +1,26 @@
-import  java.util.Date;
+import  java.util.GregorianCalendar;
 
-public abstract class Food implements Nameable {
+public class Food implements Nameable, Comparable<Food> {
     private TASTE taste;
-    private Date expirationDate;
+    private GregorianCalendar expirationDate;
     private String name;
 
-    Food(TASTE teaste, String name) {
-        this.taste = teaste;
-        this.name = name;
-        this.expirationDate = new Date();
-    }
-    @Override
-    public String getName() {
-        return name;
+    Food(){
+        this.name = "default";
+        this.expirationDate = new GregorianCalendar(2000, 1, 1);
     }
 
-    public Date getExpirationDate() {
+    Food(TASTE taste, String name) {
+        this.taste = taste;
+        this.name = name;
+        this.expirationDate = new GregorianCalendar();
+    }
+
+    public void setDate(int year, int month, int day){
+        this.expirationDate = new GregorianCalendar(year, month, day);
+    }
+
+    public GregorianCalendar getExpirationDate() {
         return expirationDate;
     }
 
@@ -30,6 +35,17 @@ public abstract class Food implements Nameable {
     enum TASTE{
         SALTY,
         SWEET,
-        SPICY
+        SPICY,
+        NONE
+    }
+
+    @Override
+    public int compareTo(Food other){
+        return this.getExpirationDate().compareTo(other.getExpirationDate());
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 }
