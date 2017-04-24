@@ -5,8 +5,8 @@ public abstract class Food implements Nameable {
     private Date expirationDate;
     private String name;
 
-    String testing;
-    String onemoretest;
+    String 1newstring;
+    String 2newstring
     
     Food(TASTE teaste, String name) {
         this.taste = teaste;
