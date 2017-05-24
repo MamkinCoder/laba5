@@ -14,6 +14,17 @@ public class FileIO {
         return readed;
     }
 
+    public PriorityQueue<Food> readQueue(String path, PriorityQueue<Food> readed) throws FileNotFoundException {
+        Scanner scanner = new Scanner(new File(path));
+        while (scanner.hasNext()){
+            String line = scanner.nextLine();
+            if (line.equals("")) continue;
+            readed.add(parseFood(line));
+        }
+        return readed;
+    }
+
+
     private Food parseFood(String line) {
         Food food = new Food();
         String[] fields = line.split(",");

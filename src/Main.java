@@ -3,6 +3,7 @@ import com.sun.xml.internal.ws.api.model.CheckedException;
 
 import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
+import java.util.Iterator;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
@@ -13,14 +14,14 @@ public class Main {
         PriorityQueue<Food> queue = new PriorityQueue<>();
         try {
             queue = file.readQueue(args[0]);
-            System.out.println("done");
+            System.out.println("Файл загружен верно");
         } catch (FileNotFoundException e) {
             System.out.println("Не могу найти файл");
         }
         catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Невозможное количество аргументов командной строки");
         }
-//
+
 ////        for(Food s : queue) {
 ////            System.out.println(s.getName());
 ////        }
@@ -32,11 +33,10 @@ public class Main {
 //        Gson gson = new Gson();
 //        String jsonInString = gson.toJson(food);
 //
-//        jsonInString = "{\"taste\":\"SWEET\",\"expirationDate\":\"\",\"name\":\"Apple\"}";
 //
 //        Food food2 =  gson.fromJson(jsonInString, Food.class);
 //
-//        System.out.println(jsonInString);
+//        //System.out.println(jsonInString);
 
 
 
@@ -63,6 +63,9 @@ public class Main {
                         default: throw new NoSuchMethodException();
 
                     }
+
+                      for(Food s : queue) {
+                         System.out.println(s.getName());}
 
             }
             catch (ArrayIndexOutOfBoundsException e){
