@@ -1,0 +1,5 @@
+java -cp out/production/laba5:libs/* Main /Users/yaroslav/Documents/Programming/Java/laba5.1/data.txt 
+
+
+
+{"taste":"SWEET","expirationDate":{"year":2017,"month":5,"dayOfMonth":10,"hourOfDay":0,"minute":0,"second":0},"name":"Apple"}

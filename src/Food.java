@@ -39,13 +39,41 @@ public class Food implements  Comparable<Food> {
         NONE
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public int compareTo(Food other){
         return this.getExpirationDate().compareTo(other.getExpirationDate());
     }
 
+    @Override
+    public boolean equals(Object obj){
+
+        // If the object is compared with itself then return true
+        if (obj == this) {
+            return true;
+        }
+
+        /* Check if obj is an instance of Food or not
+          "null instanceof [type]" also returns false */
+        if (!(obj instanceof Food)) {
+            return false;
+        }
+
+        Food other = (Food) obj;
+        if (this.expirationDate.equals(other.expirationDate)
+                && this.name.equals(other.name)
+                && this.taste == other.taste
+        )
+            return true;
+        return false;
+    }
 
     public void setName(String name) {
         this.name = name;
     }
+
+
 }
