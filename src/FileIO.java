@@ -1,4 +1,5 @@
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class FileIO {
@@ -39,9 +40,47 @@ public class FileIO {
         return food;
     }
 
-    public boolean writeQueue(String path, PriorityQueue<Food> data){
-        Boolean result = true;
-        //тутачки нужно написать запись
-        return result;
+    public void writeQueue(PriorityQueue<Food> queue){
+        BufferedWriter bw = null;
+        Iterator it = queue.iterator();
+        String mycontent = "";
+
+        while(it.hasNext()) {
+            Food food = (Food)it.next();
+            String date = new SimpleDateFormat("yyyy-MM-dd").format(food.getExpirationDate().getTime());
+            String name = food.getName();
+            String taste = food.getTaste().toString();
+            mycontent += date + " , " + name + " , " + taste + "\r\n";
+        }
+        try {
+
+            //Specify the file name and path here
+            File file = new File("out_data.csv");
+
+	 /* This logic will make sure that the file
+	  * gets created if it is not present at the
+	  * specified location*/
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            FileWriter fw = new FileWriter(file);
+            bw = new BufferedWriter(fw);
+            bw.write(mycontent);
+            System.out.println("Файл успешно записан");
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        finally
+        {
+            try{
+                if(bw!=null)
+                    bw.close();
+            }catch(Exception ex){
+                System.out.println("Ошибка в закрытии BufferedReader"+ex);
+            }
+        }
+
     }
 }

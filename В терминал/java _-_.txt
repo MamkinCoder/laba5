@@ -1,4 +1,4 @@
-java -cp out/production/laba5:libs/* Main /Users/yaroslav/Documents/Programming/Java/laba5.1/data.csv
+java -cp out/production/laba5:libs/* Main /Users/yaroslav/Documents/Programming/Java/laba5.1/in_data.csv
 
 
 

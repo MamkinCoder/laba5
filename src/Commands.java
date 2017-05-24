@@ -1,5 +1,4 @@
 import com.google.gson.Gson;
-
 import java.util.Iterator;
 import java.util.PriorityQueue;
 
@@ -92,6 +91,8 @@ public class Commands {
     }
 
     public static void info(PriorityQueue<Food> queue) {
+
+        System.out.printf("Тип коллекции:" + Food.class.toString() + "%nКоличество элементов: " + queue.size() + "%n");
 
 
     }
