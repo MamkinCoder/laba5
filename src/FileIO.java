@@ -2,7 +2,20 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+/** Запись - чтение из файла.
+        * @author Ярослав
+        * @author Денис
+        * @version over 9000
+        * @since 1.0
+        */
+
 public class FileIO {
+
+        /** Читаем коллекцию из файла.
+         * @param path путь к файлу.
+         * @throws FileNotFoundException исключение если файл не найден.
+         * @return прочитанную коллекцию.
+         */
 
     public PriorityQueue<Food> readQueue(String path) throws FileNotFoundException {
         PriorityQueue<Food> readed = new PriorityQueue<>();
@@ -15,6 +28,12 @@ public class FileIO {
         return readed;
     }
 
+    /** Перегруженный метод.
+     * @param path путь к файлу.
+     * @throws FileNotFoundException исключение если файл не найден.
+     * @return прочитанную коллекцию.
+     */
+
     public PriorityQueue<Food> readQueue(String path, PriorityQueue<Food> readed) throws FileNotFoundException {
         Scanner scanner = new Scanner(new File(path));
         while (scanner.hasNext()){
@@ -25,6 +44,11 @@ public class FileIO {
         return readed;
     }
 
+
+    /** Парсер из csv в джавочку.
+     * @param line строка.
+     * @return объект класса Food.
+     */
 
     private Food parseFood(String line) {
         Food food = new Food();
@@ -40,6 +64,11 @@ public class FileIO {
         return food;
     }
 
+    /** Запись в файл коллекции.
+     * @param queue что записываем.
+     * @return "успешно записан", если успешно записан
+     */
+
     public void writeQueue(PriorityQueue<Food> queue){
         BufferedWriter bw = null;
         Iterator it = queue.iterator();
@@ -54,12 +83,8 @@ public class FileIO {
         }
         try {
 
-            //Specify the file name and path here
             File file = new File("out_data.csv");
 
-	 /* This logic will make sure that the file
-	  * gets created if it is not present at the
-	  * specified location*/
             if (!file.exists()) {
                 file.createNewFile();
             }

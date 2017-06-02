@@ -4,6 +4,12 @@ import java.util.Date;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
+/** Класс Main.
+ * @author Ярослав
+ * @author Денис
+ * @version over 9000
+ * @since 1.0
+ */
 public class Main {
     public static void main(String[] args) {
 

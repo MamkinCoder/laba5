@@ -1,10 +1,20 @@
 import  java.util.GregorianCalendar;
 
+/** Класс Food.
+ * @author Ярослав
+ * @author Денис
+ * @version over 9000
+ * @since 1.0
+ */
+
 public class Food implements  Comparable<Food> {
+    /** енам вкусов */
     private TASTE taste;
     private GregorianCalendar expirationDate;
     private String name;
 
+    /** Конструктор
+     */
     Food(){
         this.name = "default";
         this.expirationDate = new GregorianCalendar(2000, 1, 1);
