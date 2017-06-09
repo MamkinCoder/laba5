@@ -1,5 +1,10 @@
-java -cp out/production/laba5:libs/* Main /Users/yaroslav/Documents/Programming/Java/laba5.1/in_data.csv
+java -cp out/production/laba5:libs/* Main in_data.csv
 
 
 
 {"taste":"SWEET","expirationDate":{"year":2021,"month":5,"dayOfMonth":10,"hourOfDay":0,"minute":0,"second":0},"name":"Apple3"}
+
+
+java -cp out/production/laba5:libs/* Main in_data.csv
+
+javac -d out/production/laba5 -cp libs/*.jar src/*.java

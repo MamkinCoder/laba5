@@ -6,7 +6,6 @@ import java.util.PriorityQueue;
 /** Команды для ввода в консоль.
  * @author Ярослав
  * @author Денис
- * @version over 9000
  * @since 1.0
  */
 public class Commands {
@@ -123,5 +122,13 @@ public class Commands {
         System.out.printf("Тип коллекции:" + Food.class.toString() + "%nКоличество элементов: " + queue.size() + "%n");
 
 
+    }
+
+    public static void help() {
+        System.out.println("info: вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)\n" +
+                "add_if_max {element}: добавить новый элемент в коллекцию, если его значение превышает значение наибольшего элемента этой коллекции\n" +
+                "import {String path}: добавить в коллекцию все данные из файла\n" +
+                "remove_greater {element}: удалить из коллекции все элементы, превышающие заданный\n" +
+                "remove_all {element}: удалить из коллекции все элементы, эквивалентные заданному");
     }
 }

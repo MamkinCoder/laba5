@@ -3,7 +3,6 @@ import  java.util.GregorianCalendar;
 /** Класс Food.
  * @author Ярослав
  * @author Денис
- * @version over 9000
  * @since 1.0
  */
 

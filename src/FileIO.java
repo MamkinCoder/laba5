@@ -5,7 +5,6 @@ import java.util.*;
 /** Запись - чтение из файла.
         * @author Ярослав
         * @author Денис
-        * @version over 9000
         * @since 1.0
         */
 

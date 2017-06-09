@@ -3,11 +3,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.PriorityQueue;
 import java.util.Scanner;
+import java.util.NoSuchElementException;
 
 /** Класс Main.
  * @author Ярослав
  * @author Денис
- * @version over 9000
  * @since 1.0
  */
 public class Main {
@@ -31,12 +31,14 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String line;
         while (true) {
-            line = scanner.nextLine();
+            try {line = scanner.nextLine(); 
+            
             if (line.equals("quit")) {
                 break;}
             String[] input = line.split(" ");
-            try {
+        
                     switch (input[0]) {
+                        case "help": Commands.help();
                         case "remove_all": queue = Commands.remove_all(input[1], queue);
                             break;
                         case "add_if_max": queue = Commands.add_if_max(input[1], queue);
@@ -57,6 +59,7 @@ public class Main {
                     }
 
             }
+            catch (NoSuchElementException e) {System.out.println("До свидания"); return;}
             catch (ArrayIndexOutOfBoundsException e){
                 System.out.println("Неверное количество аргументов");
             }
@@ -68,9 +71,11 @@ public class Main {
 
         final PriorityQueue<Food> final_food = queue;
 
+        final FileIO final_file = new FileIO();
+
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             public void run() {
-                file.writeQueue(final_food);
+                final_file.writeQueue(final_food);
             }
         }, "Shutdown-thread"));
 
