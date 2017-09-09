@@ -1,6 +1,6 @@
 import  java.util.GregorianCalendar;
 
-public class Food implements Nameable, Comparable<Food> {
+public class Food implements  Comparable<Food> {
     private TASTE taste;
     private GregorianCalendar expirationDate;
     private String name;
@@ -44,8 +44,8 @@ public class Food implements Nameable, Comparable<Food> {
         return this.getExpirationDate().compareTo(other.getExpirationDate());
     }
 
-    @Override
-    public String getName() {
-        return name;
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
