@@ -20,7 +20,7 @@ public class FileIO {
         try {
             String[] date = fields[0].trim().split("-");
             food.setDate(Integer.parseInt(date[0]),Integer.parseInt(date[1]),Integer.parseInt(date[2]));
-            food.setTaste(Food.TASTE.valueOf(fields[2].trim()));
+            food.setTaste(fields[2].trim());
             food.setName(fields[1].trim());
         } catch (Exception e){
             System.out.println("Wrong input line : " + line);
