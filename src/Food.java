@@ -1,15 +1,16 @@
 import com.sun.javaws.exceptions.InvalidArgumentException;
 
+import java.lang.Object;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import  java.util.GregorianCalendar;
+import java.util.GregorianCalendar;
 
 public class Food implements  Comparable<Food> {
     private TASTE taste;
-    private GregorianCalendar expirationDate;
-    private String name;
+    private  GregorianCalendar expirationDate;
+    private  String name;
 
     Food(){
         this.name = "default";
@@ -33,7 +34,6 @@ public class Food implements  Comparable<Food> {
         try {
             date = sdf.parse(str);
         } catch (ParseException e) {
-            e.printStackTrace();
             throw new InvalidArgumentException(new String[]{e.getMessage()});
         }
         Calendar cal = Calendar.getInstance();
@@ -51,23 +51,22 @@ public class Food implements  Comparable<Food> {
         return taste;
     }
 
-    public void setTaste(String teaste) {
-        this.taste = Food.TASTE.valueOf(teaste);
+    public void setTaste(String teaste) throws IllegalArgumentException {
+        this.taste = TASTE.valueOf(teaste);
     }
 
     public void setTaste(TASTE teaste) {
         this.taste = teaste;
     }
 
-    public String getName() {
+    public  String getName()  {
         return name;
     }
 
-    enum TASTE{
+    enum TASTE {
         SALTY,
-        SWEET,
         SPICY,
-        NONE
+        SWEET
     }
 
     @Override
